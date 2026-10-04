@@ -1,0 +1,156 @@
+# K120 互動教學交接文件（換電腦接續用）
+
+> 交接日期：2026-10-05
+> 原機器：家用機（Windows 10，Claude Code 2.1.289 npm 版）
+> 目標：在一台**全新的電腦**上，接續《Claude Code Vibe Coding 開發手冊 第 2 版》的互動式教學演練。
+
+---
+
+## 1. 這個教學是什麼
+
+一步一步帶你操作書中每一章的內容。每一步都照同一個循環進行：
+
+```
+Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播放（畫面同時顯示文字）
+        → 你在另一個終端機視窗實際操作 → 回報結果 → Claude 判讀 → 下一步
+```
+
+**教學規則**（新電腦上的 Claude 要遵守）：
+
+1. **一律繁體中文。**
+2. **每一步都要有語音和字幕**，不能只給文字：
+   - 先寫旁白稿 `teaching/narration/chNN-stepX.txt`。用口語寫，不放表格和符號，因為 TTS 念出來會很怪。
+   - 再用 `teaching/tools/make_caption_video.py --play` 產生影片，並直接播放。
+   - 聊天視窗裡也要附同樣內容的文字版，方便對照。
+3. **每次只講一步。**講完就停下來，等使用者回報結果，不要一次把整章講完。
+4. 使用者在**另一個終端機**操作，練習資料夾是 `%USERPROFILE%\workspace\k120-chNN-practice`，不要動到其他專案。
+5. 判讀結果時，要講出**和書上不同的地方，以及為什麼不同**。書上也提醒過：生成式 AI 有不確定性，結果可能和書上不一樣。
+6. 書上的提示詞原文在 `code/00-F6757_support/chNN.md`，各章重點在 `book-summary.md`。我在原機器跑過範例的結果寫在 `demo/DEMO-LOG.md`，可以拿來對照。
+
+---
+
+## 2. 目前進度
+
+| 章 | 步 | 狀態 | 備註 |
+| --- | --- | --- | --- |
+| 1 | 第 1 步：確認安裝方式、版本、自動更新（1-2 節） | ✅ 在原機器完成 | 原機器是 npm 安裝，和書不同。**新電腦請照書用原生安裝**，正好重做一次 |
+| 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | ⏳ **從這裡接續** | 旁白和影片已做好：`teaching/narration/ch01-step1-2.txt`、`teaching/videos/ch01-step1-2.mp4` |
+| 1 | 第 3 步：`-c`／`--resume` 接續對話、auto memory、`!` 模式（1-3 節） | 未開始 | |
+| 1 | 第 4 步：Windows 上 `!` 模式用的是哪個 shell（1-4 節） | 未開始 | |
+| 2–9 | 見 `LESSON-PLAN.md` | 未開始 | |
+
+原機器第 1 步的判讀重點：
+
+- 那個 session 回報結果時，其實**沒有真的執行 `/doctor`**，是用它記得的資訊回答的。
+- 第 1 章的核心觀念：**要確認現況，就讓工具實際量測，不要只聽模型說。**
+
+---
+
+## 3. 新電腦的準備步驟（Windows）
+
+> 全新電腦什麼都沒有，請依序做。**每一步做完都要驗證**，驗證不過就不要往下做。
+
+### 3-1 安裝基本工具
+
+開「PowerShell」（一般權限就可以），一行一行執行：
+
+```powershell
+winget install --id Git.Git -e
+winget install --id Python.Python.3.12 -e
+winget install --id astral-sh.uv -e
+winget install --id Gyan.FFmpeg -e
+winget install --id VideoLAN.VLC -e
+winget install --id OpenJS.NodeJS.LTS -e
+winget install --id Microsoft.PowerShell -e
+```
+
+用途說明：
+
+- **ffmpeg** 和 **VLC**：做字幕影片、播放影片
+- **Node**：第 5 章 Playwright、第 9 章前端會用到
+- **PowerShell 7**：書中第 1 章安裝 Claude Code 會用到
+
+**全部裝完後，關掉 PowerShell 再重開一個**，讓新的 PATH 生效。然後驗證：
+
+```powershell
+git --version; python --version; uv --version; ffmpeg -version | Select-Object -First 1; node --version
+```
+
+### 3-2 安裝 Claude Code（照書 1-2 節，用原生安裝）
+
+```powershell
+irm https://claude.ai/install.ps1 | iex
+```
+
+裝好後輸入 `claude`，第一次啟動會要求登入，用你的 Claude 帳號（Max 訂閱）登入。
+
+驗證：`claude --version` 要能顯示版本號。
+
+### 3-3 安裝字幕影片需要的 Python 套件
+
+```powershell
+python -m pip install edge-tts
+python -m edge_tts --help
+```
+
+### 3-4 下載本 repo（含範例 submodule）
+
+```powershell
+mkdir $env:USERPROFILE\workspace -Force
+cd $env:USERPROFILE\workspace
+git clone --recurse-submodules https://github.com/chenghyang2001/kindle-120-claude-code-vibe-coding-2e
+cd kindle-120-claude-code-vibe-coding-2e
+```
+
+驗證：`git submodule status` 要列出 11 行，而且每行開頭**不能是 `-`**。開頭是 `-` 代表沒有抓到內容，要重跑 `git submodule update --init`。
+
+### 3-5 驗證字幕影片工具
+
+```powershell
+python teaching\tools\make_caption_video.py --self-test
+python teaching\tools\make_caption_video.py teaching\narration\ch01-step1-2.txt --out teaching\videos\test.mp4 --play
+```
+
+看到 `SELF_TEST_PASS`，而且 VLC 跳出來，同時有聲音和中文字幕，就代表成功了。
+
+### 3-6 開始接續教學
+
+在 repo 資料夾裡輸入 `claude`，把 `teaching/START-PROMPT.md` 裡「貼這段」的內容整段貼進去。
+
+---
+
+## 4. Repo 結構速查
+
+| 路徑 | 內容 |
+| --- | --- |
+| `book-summary.md` | 全書 9 章重點整理 |
+| `code/00-F6757_support/chNN.md` | 出版社提供的各章提示詞原文 |
+| `code/chNN-*` | 各章範例專案，以 submodule 收錄，不要修改 |
+| `demo/DEMO-LOG.md` | 原機器實際跑範例的結果和發現的問題，可以拿來對照 |
+| `teaching/HANDOFF.md` | 本文件 |
+| `teaching/START-PROMPT.md` | 新電腦要貼給 Claude 的接續提示詞 |
+| `teaching/LESSON-PLAN.md` | 第 1–9 章的分步教學計畫 |
+| `teaching/narration/` | 各步的旁白稿 |
+| `teaching/videos/` | 各步的字幕影片 |
+| `teaching/tools/make_caption_video.py` | 旁白稿轉成「語音＋同步字幕」影片的工具 |
+
+---
+
+## 5. 相關線上資源（不用登入就能看）
+
+- 語音導讀播放清單（8 段，2 小時 27 分）：<http://187.127.109.145/kindle-120.m3u>
+- 簡報網頁（8 段，74 張）：<https://chenghyang2001.github.io/kindle-120-slides/>
+- YouTube 影片摘要（8 支，**私人**，要登入 ChengHsien Yang 帳號才能看）：<https://www.youtube.com/playlist?list=PLRcrmTuEzYPo>
+- 出版社服務專區：<https://github.com/FlagTech/F6757_support>
+
+---
+
+## 6. 已知的坑（原機器踩過的）
+
+| 狀況 | 原因 | 解法 |
+| --- | --- | --- |
+| Chrome 或 ffmpeg 遇到中文路徑就失敗 | Windows 命令列參數的編碼問題 | 工具會先在 ASCII 路徑的暫存目錄處理完，再把結果搬過去 |
+| 字幕的進度條動不了 | ffmpeg 的 `drawbox` 不能用時間 `t` 做動畫 | 工具已改用 `overlay` 搭配 `eval=frame` |
+| Flask 或 uvicorn 關掉之後，port 還被占用 | 自動重新載入（reloader）的子行程沒有一起關掉 | 用 `Get-NetTCPConnection -LocalPort <port>` 找出真正占用的 PID 再關掉 |
+| Git Bash 用 curl 送中文 JSON 收到 400 | 編碼問題 | 改用 Python 的 `urllib` |
+| 第 9 章下載影片失敗 | 範例鎖定 Python 3.9，新版 yt-dlp 已不支援 | 另外建一個 Python 3.12 的虛擬環境，做法見 `README.md` |

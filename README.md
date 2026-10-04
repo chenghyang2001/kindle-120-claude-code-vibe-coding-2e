@@ -48,4 +48,12 @@ cd code/ch09-YouTube2Slides/backend && ../../../demo/work/ch09-venv312/Scripts/p
 - **第 8 章**：subagent 版的 hard／expert 難度 180 秒內出不了一題，正好對應書中 8-4 最後提出的修改。PRD 版最快也最穩定。
 - **第 9 章**：`.python-version` 鎖定 3.9，導致 yt-dlp 被卡在舊版而無法下載 YouTube 影片。改用 3.12 後，19 分鐘的影片 66 秒產出 421 張投影片。
 
+## 互動式教學（換電腦接續）
+
+第 1–9 章的分步互動教學。每一步都是「語音＋同步字幕」影片加上實際操作。
+
+- 換電腦時先看 [`teaching/HANDOFF.md`](teaching/HANDOFF.md)，裡面有新電腦的準備步驟、目前進度和已知的坑。
+- 準備好之後，把 [`teaching/START-PROMPT.md`](teaching/START-PROMPT.md) 的提示詞貼給 Claude Code。
+- 各章的分步計畫在 [`teaching/LESSON-PLAN.md`](teaching/LESSON-PLAN.md)。
+
 範例程式碼的著作權屬於旗標科技與原作者，本 repo 只用於個人學習。
