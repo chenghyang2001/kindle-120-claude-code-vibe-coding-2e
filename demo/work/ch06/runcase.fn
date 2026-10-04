@@ -1,0 +1,12 @@
+runcase () 
+{ 
+    local R=$W/runs/$1;
+    rm -f -rf "$R";
+    mkdir -p "$R";
+    ( cd "$SRC" && git archive HEAD | tar -x -C "$R" );
+    local before=$(md5sum "$R/data/tasks.json" | cut -c1-8);
+    ( cd "$R" && echo "$5" | timeout 300 claude -p --setting-sources project --settings "$(cygpath -w "$W/settings/$2")" --strict-mcp-config --tools $3 --allowedTools $4 --permission-mode acceptEdits --output-format stream-json --verbose > ../$1.jsonl 2> ../$1.err );
+    local after=$(md5sum "$R/data/tasks.json" | cut -c1-8);
+    echo "### $1 tasks.json $([ $before = $after ] && echo 未變 || echo 已改) | files: $(ls $R | tr '\n' ' ') | err: $(head -c 150 $W/runs/$1.err)";
+    ( cd $W/runs && PYTHONUTF8=1 python ../parse.py $1.jsonl )
+}

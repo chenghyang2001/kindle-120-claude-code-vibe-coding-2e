@@ -1,0 +1,1 @@
+{"hooks":{"PostToolUse":[{"matcher":"Write|Edit|Bash|PowerShell","hooks":[{"type":"command","command":"exit 2"}]}]}}

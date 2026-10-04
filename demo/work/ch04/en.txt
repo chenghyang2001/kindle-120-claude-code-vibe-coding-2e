@@ -1,0 +1,12 @@
+Version control systems (VCS) are essential tools for modern software development. 
+They allow teams to track changes, collaborate efficiently, and maintain a reliable history of their projects. 
+Early systems such as RCS and CVS provided basic file versioning but were limited to centralized management, which made branching and merging extremely difficult. 
+As projects grew in scale, developers often struggled with conflicts and wasted time resolving integration issues.
+
+Subversion (SVN) emerged as an improvement, offering better collaboration and easier branching, but it still relied on a central server. 
+This centralized model often became a bottleneck, especially for globally distributed teams who needed faster and more flexible workflows. 
+
+The introduction of distributed systems, most notably Git, revolutionized software development practices. 
+Git enabled developers to work offline, commit locally, and synchronize with others only when needed. 
+It also introduced lightweight branching, powerful merging, and a decentralized workflow that made large-scale collaboration far more effective. 
+Today, Git has become the de facto standard for version control, powering platforms like GitHub and GitLab, and shaping how modern teams collaborate on software projects worldwide.

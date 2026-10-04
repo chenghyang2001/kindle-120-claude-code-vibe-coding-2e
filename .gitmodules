@@ -1,0 +1,34 @@
+[submodule "code/00-F6757_support"]
+	path = code/00-F6757_support
+	url = https://github.com/FlagTech/F6757_support
+[submodule "code/ch02-F6757_ch02"]
+	path = code/ch02-F6757_ch02
+	url = https://github.com/FlagTech/F6757_ch02
+[submodule "code/ch04-F6757_ch04"]
+	path = code/ch04-F6757_ch04
+	url = https://github.com/FlagTech/F6757_ch04
+[submodule "code/ch05-test_buyhouse"]
+	path = code/ch05-test_buyhouse
+	url = https://github.com/FlagTech/test_buyhouse
+	branch = update_data
+[submodule "code/ch06-F6757_ch06_todo-system"]
+	path = code/ch06-F6757_ch06_todo-system
+	url = https://github.com/FlagTech/F6757_ch06_todo-system
+[submodule "code/ch07-order-sheet"]
+	path = code/ch07-order-sheet
+	url = https://github.com/FlagTech/order-sheet
+[submodule "code/ch08-AI-session-sudoku-game"]
+	path = code/ch08-AI-session-sudoku-game
+	url = https://github.com/FlagTech/AI-session-sudoku-game
+[submodule "code/ch08-PRD-sudoku"]
+	path = code/ch08-PRD-sudoku
+	url = https://github.com/FlagTech/PRD-sudoku
+[submodule "code/ch08-subagent-sudoku"]
+	path = code/ch08-subagent-sudoku
+	url = https://github.com/FlagTech/subagent-sudoku
+[submodule "code/ch08-grill-me-sudoku"]
+	path = code/ch08-grill-me-sudoku
+	url = https://github.com/FlagTech/grill-me-sudoku
+[submodule "code/ch09-YouTube2Slides"]
+	path = code/ch09-YouTube2Slides
+	url = https://github.com/FlagTech/YouTube2Slides

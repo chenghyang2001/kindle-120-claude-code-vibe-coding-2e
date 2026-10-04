@@ -1,0 +1,30 @@
+# Python 虛擬環境（可重建，見 README）
+.venv/
+demo/work/ch09-venv312/
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+
+# claude -p 原始串流輸出（含本機環境資訊；已解析成 demo/logs/*.log）
+demo/work/**/*.jsonl
+demo/work/**/*.err
+
+# 機密
+.env
+credentials.json
+token.json
+
+# 當機殘留／系統暫存
+*.stackdump
+core
+*.core
+*.dmp
+*~
+*.swp
+.DS_Store
+Thumbs.db
+
+# 機器生成的 session 快照
+.claude/session-state.md

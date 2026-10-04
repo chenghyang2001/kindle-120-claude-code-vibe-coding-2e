@@ -1,0 +1,1 @@
+{"hooks":{"PreToolUse":[{"matcher":"Write|Edit|Bash|PowerShell","hooks":[{"type":"command","command":"echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"這個專案不允許檔案被修改\"}}'"}]}]}}

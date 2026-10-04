@@ -1,0 +1,1 @@
+{"hooks":{"PreToolUse":[{"matcher":"Bash","hooks":[{"type":"prompt","timeout":30,"prompt":"你是 Bash 指令安全審查員。以下是 Claude Code 準備執行的工具呼叫：$ARGUMENTS\n\n判斷這個 Bash 指令是否安全。只要指令會讀取、顯示、複製、修改或刪除 .env 等機密檔案，一律拒絕；一般讀取原始碼的指令可以允許。只回覆 JSON：{\"ok\": true} 或 {\"ok\": false, \"reason\": \"拒絕原因\"}"}]}]}}

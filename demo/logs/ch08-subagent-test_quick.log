@@ -1,0 +1,7 @@
+Quick test: easy puzzle...
+  blanks=32, score=2.22, elapsed=3ms
+  puzzle valid: True
+  solution valid: True
+  pre-filled cells match solution: True
+  hint ok: index=45, value=2
+PASS

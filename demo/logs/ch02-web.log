@@ -1,0 +1,15 @@
+INFO:     Started server process [9248]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:5050 (Press CTRL+C to quit)
+Web server started at http://localhost:5050
+INFO:     127.0.0.1:50860 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50861 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50862 - "POST /api/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50863 - "POST /api/watermark HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50864 - "GET /api/download/56082f653b144257ae66cf06953721f2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50871 - "POST /api/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50872 - "POST /api/watermark HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50873 - "GET /api/download/2c34ea11740642388120ab0c4f8cdf57 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50900 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50900 - "GET /favicon.ico HTTP/1.1" 404 Not Found

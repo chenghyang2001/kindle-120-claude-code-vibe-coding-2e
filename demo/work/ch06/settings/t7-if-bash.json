@@ -1,0 +1,5 @@
+{"hooks":{"PreToolUse":[{"matcher":"Bash","hooks":[
+ {"type":"command","if":"Bash(rm *)","command":"echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"危險指令 rm 已被 hook 攔截\"}}'"},
+ {"type":"command","if":"Bash(sudo *)","command":"echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"危險指令 sudo 已被 hook 攔截\"}}'"},
+ {"type":"command","if":"Bash(chmod *)","command":"echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"危險指令 chmod 已被 hook 攔截\"}}'"}
+]}]}}

@@ -1,0 +1,349 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 3
+/Kids [ 4 0 R 10 0 R 14 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Contents 5 0 R
+/MediaBox [ 0 0 595.2756 841.8898 ]
+/Resources <<
+/ExtGState <<
+/gRLs0 <<
+/ca 0.15
+>>
+>>
+/Font <<
+/F1 6 0 R
+/F1-0 7 0 R
+/F2 8 0 R
+/F2-0 9 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/Length 992
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 28 Tf 33.6 TL ET
+0 0 .545098 rg
+BT 1 0 0 1 212.8258 751.8898 Tm (Page 1 \227 A4) Tj T* ET
+BT /F1 16 Tf 19.2 TL ET
+0 0 0 rg
+BT 1 0 0 1 246.2778 711.8898 Tm (210 \327 297 mm) Tj T* ET
+BT /F1 13 Tf 15.6 TL ET
+BT 1 0 0 1 72 420.9449 Tm (This document contains confidential information.) Tj T* ET
+BT 1 0 0 1 72 398.9449 Tm (Distribution is restricted to authorised personnel only.) Tj T* ET
+BT 1 0 0 1 72 376.9449 Tm (Unauthorised copying or disclosure is prohibited.) Tj T* ET
+BT 1 0 0 1 72 354.9449 Tm  T* ET
+BT 1 0 0 1 72 332.9449 Tm (Lorem ipsum dolor sit amet, consectetur adipiscing elit.) Tj T* ET
+BT 1 0 0 1 72 310.9449 Tm (Sed do eiusmod tempor incididunt ut labore et dolore magna.) Tj T* ET
+ 
+
+Q
+q
+0.0 0.0 595.2756 841.8898 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+0 0 0 rg
+/gRLs0 gs
+BT
+/F2-0 119.0551 Tf
+142.8661 TL
+ET
+0.707107 0.707107 -0.707107 0.707107 297.6378 420.9449 cm
+BT
+1 0 0 1 -307.5789 0 Tm
+(WEB TEST) Tj
+T*
+ET
+Q
+Q
+
+endstream
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+9 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+10 0 obj
+<<
+/Contents 11 0 R
+/MediaBox [ 0 0 612 792 ]
+/Resources <<
+/ExtGState <<
+/gRLs0 <<
+/ca 0.15
+>>
+>>
+/Font <<
+/F1 6 0 R
+/F1-0 12 0 R
+/F2 8 0 R
+/F2-0 13 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+11 0 obj
+<<
+/Length 930
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 28 Tf 33.6 TL ET
+0 .392157 0 rg
+BT 1 0 0 1 200.188 702 Tm (Page 2 \227 Letter) Tj T* ET
+BT /F1 16 Tf 19.2 TL ET
+0 0 0 rg
+BT 1 0 0 1 259.968 662 Tm (8.5 \327 11 inch) Tj T* ET
+BT /F1 13 Tf 15.6 TL ET
+BT 1 0 0 1 72 396 Tm (This document contains confidential information.) Tj T* ET
+BT 1 0 0 1 72 374 Tm (Distribution is restricted to authorised personnel only.) Tj T* ET
+BT 1 0 0 1 72 352 Tm (Unauthorised copying or disclosure is prohibited.) Tj T* ET
+BT 1 0 0 1 72 330 Tm  T* ET
+BT 1 0 0 1 72 308 Tm (Lorem ipsum dolor sit amet, consectetur adipiscing elit.) Tj T* ET
+BT 1 0 0 1 72 286 Tm (Sed do eiusmod tempor incididunt ut labore et dolore magna.) Tj T* ET
+ 
+
+Q
+q
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+0 0 0 rg
+/gRLs0 gs
+BT
+/F2-0 122.4 Tf
+146.88 TL
+ET
+0.707107 0.707107 -0.707107 0.707107 306 396 cm
+BT
+1 0 0 1 -316.2204 0 Tm
+(WEB TEST) Tj
+T*
+ET
+Q
+Q
+
+endstream
+endobj
+12 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+14 0 obj
+<<
+/Contents 15 0 R
+/MediaBox [ 0 0 841.8898 1190.551 ]
+/Resources <<
+/ExtGState <<
+/gRLs0 <<
+/ca 0.15
+>>
+>>
+/Font <<
+/F1 6 0 R
+/F1-0 16 0 R
+/F2 8 0 R
+/F2-0 17 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/Rotate 0
+/Trans <<
+>>
+/Type /Page
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+15 0 obj
+<<
+/Length 1001
+>>
+stream
+q
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+BT /F2 28 Tf 33.6 TL ET
+.545098 0 0 rg
+BT 1 0 0 1 336.1329 1100.551 Tm (Page 3 \227 A3) Tj T* ET
+BT /F1 16 Tf 19.2 TL ET
+0 0 0 rg
+BT 1 0 0 1 344.2489 1060.551 Tm (297 \327 420 mm \(large\)) Tj T* ET
+BT /F1 13 Tf 15.6 TL ET
+BT 1 0 0 1 72 595.2756 Tm (This document contains confidential information.) Tj T* ET
+BT 1 0 0 1 72 573.2756 Tm (Distribution is restricted to authorised personnel only.) Tj T* ET
+BT 1 0 0 1 72 551.2756 Tm (Unauthorised copying or disclosure is prohibited.) Tj T* ET
+BT 1 0 0 1 72 529.2756 Tm  T* ET
+BT 1 0 0 1 72 507.2756 Tm (Lorem ipsum dolor sit amet, consectetur adipiscing elit.) Tj T* ET
+BT 1 0 0 1 72 485.2756 Tm (Sed do eiusmod tempor incididunt ut labore et dolore magna.) Tj T* ET
+ 
+
+Q
+q
+0.0 0.0 841.8898 1190.551 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+0 0 0 rg
+/gRLs0 gs
+BT
+/F2-0 168.378 Tf
+202.0536 TL
+ET
+0.707107 0.707107 -0.707107 0.707107 420.9449 595.2755 cm
+BT
+1 0 0 1 -435.0045 0 Tm
+(WEB TEST) Tj
+T*
+ET
+Q
+Q
+
+endstream
+endobj
+16 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+17 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+xref
+0 18
+0000000000 65535 f 
+0000000015 00000 n 
+0000000054 00000 n 
+0000000127 00000 n 
+0000000176 00000 n 
+0000000470 00000 n 
+0000001513 00000 n 
+0000001620 00000 n 
+0000001727 00000 n 
+0000001839 00000 n 
+0000001951 00000 n 
+0000002239 00000 n 
+0000003221 00000 n 
+0000003329 00000 n 
+0000003442 00000 n 
+0000003740 00000 n 
+0000004794 00000 n 
+0000004902 00000 n 
+trailer
+<<
+/Size 18
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+5015
+%%EOF

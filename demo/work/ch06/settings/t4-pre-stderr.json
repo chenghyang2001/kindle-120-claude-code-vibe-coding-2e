@@ -1,0 +1,1 @@
+{"hooks":{"PreToolUse":[{"matcher":"Write|Edit|Bash|PowerShell","hooks":[{"type":"command","command":"echo '禁止修改：此專案的 hook 已封鎖所有檔案編輯操作' >&2; exit 2"}]}]}}
