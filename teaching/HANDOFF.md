@@ -6,6 +6,41 @@
 
 ---
 
+## 0. 明天從這裡開始（2026-10-05 收工時寫）
+
+> 機器：家用機 USER（Windows 11，Claude Code 2.1.289 原生安裝，Opus 5.5）。
+> 這台已完成第 1–7 章（6-3、7-4 前半的 Telegram 因無 Bot Token 跳過）。
+
+### 下一步：第 8 章第 1 步（8-2 節，直接對話開發數獨）
+
+- **使用者還沒開始做**（`k120-ch08-practice-chat` 資料夾尚未建立）。
+- 旁白／影片／說明都已做好：`teaching/narration/ch08-step1.txt`、`teaching/videos/ch08-step1.mp4`、`teaching/steps/ch08-step1.md`。
+- 接續時：先**重播影片並用記事本開說明檔**，等使用者回報，再判讀並往 8-3（PRD 版）走。
+- 第 8 章後續：8-3 PRD（`ch08.md` 有 CLAUDE.md＋PRD.md 範本）→ 8-4 4 個 subagent → 8-5 `/grill-me`；然後第 9 章。
+
+### 這台機器上確立的教學做法（新 session 請照做）
+
+1. **使用者通常不貼結果，只說 proceed next**。判讀一律直接讀練習資料夾的對話記錄：
+   `~/.claude/projects/C--Users-USER-workspace-<練習資料夾名>/*.jsonl`（略過開頭是「你是一個嚴格的記憶萃取器」的 sdk-cli session），再加上實際檢查檔案、git log、port。
+2. **使用者用 cmd（不是 PowerShell）**：指令用 `%USERPROFILE%`、`set VAR=1`，不要給 `$env:`。
+3. **播放影片**：`make_caption_video.py` 產生後，用 PowerShell `Start-Process` 開 VLC（Git Bash 的 `&` 背景啟動會失敗，VLC 不會出現）：
+   `powershell -NoProfile -Command "Start-Process -FilePath 'C:\Program Files\VideoLAN\VLClc.exe' -ArgumentList '--play-and-exit','--no-video-title-show','\"<mp4 Windows 路徑>\"'"`
+4. **說明另存成檔案**：終端機顯示會截斷，從第 7 章起每步另寫 `teaching/steps/chNN-stepX.md`，並用 `notepad.exe` 開啟。
+5. **Git Bash 的 PATH 沒有 ffmpeg**：產生影片前先
+   `export PATH="$LOCALAPPDATA/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin:$PATH"`
+6. **請使用者自己打指令，不要整段貼教學說明給練習 session**（2-5 的對照組因此被破壞）。
+7. 練習 session 受全域規則影響很大（writer→QA→reviewer、commit 後 push、Stop hook 提醒），判讀時要分清「書上行為」和「使用者全域設定造成的行為」。第 6 章用 `claude --setting-sources project,local` 排除全域 hook。
+8. 使用者要求時可用 Gmail MCP（`mcp__claude_ai_Gmail__send_message`）把提示詞寄給自己（手機貼用）。
+
+### 收工時的環境狀態（明天先處理）
+
+- **port 5000 仍被 ch07 的 Flask 測試伺服器佔用**（PID 18884）。第 8 章用不到，但第 9 章前請關掉：`netstat -ano | findstr :5000` → `taskkill /PID <PID> /F`。
+- GitHub 上 `chenghyang2001/k120-ch07-practice` 有 `before-integration` 分支（雲端整合結果 `954cf73`），可留著對照或刪除。
+- 全域多了兩樣東西（練習時建的，會隨 `~/.claude` 同步）：`~/.claude/agents/technical-translator.md`、`~/.claude/skills/playwright-cli/`。要不要保留由使用者決定。
+- 待補做（有 Telegram Bot Token 時）：6-3 Notification hook（`ch06-step3.*` 已做好）、7-4 前半 Telegram Channel。
+
+---
+
 ## 1. 這個教學是什麼
 
 一步一步帶你操作書中每一章的內容。每一步都照同一個循環進行：

@@ -1,3 +1,22 @@
+# 同一台電腦隔天接續（2026-10-06 起用這段）
+
+在 repo 資料夾（`%USERPROFILE%\workspace\kindle-120-claude-code-vibe-coding-2e`）輸入 `claude`，貼上：
+
+```
+我要接續 K120《Claude Code Vibe Coding 開發手冊 第 2 版》的互動式教學演練（同一台家用機，昨天做到第 7 章結束）。
+
+請先讀：
+1. teaching/HANDOFF.md，特別是「0. 明天從這裡開始」那一節（教學做法、環境狀態）和第 2 節進度表
+2. teaching/LESSON-PLAN.md 第 8、9 章
+3. code/00-F6757_support/ch08.md
+
+規則照 HANDOFF.md：繁體中文；每步要語音＋同步字幕影片（用 Start-Process 開 VLC 播放）＋聊天文字版＋teaching/steps/ 說明檔（用記事本開）；一次只講一步；我說 proceed next 時，直接讀練習資料夾的對話記錄來判讀；指出和書上不同的地方與原因；每步更新 HANDOFF.md 進度表並 commit、push。
+
+從第 8 章第 1 步（8-2 直接對話開發數獨）開始：旁白和影片已經做好了，請直接重播 teaching/videos/ch08-step1.mp4，並用記事本打開 teaching/steps/ch08-step1.md。
+```
+
+---
+
 # 新電腦接續提示詞
 
 新電腦完成 `HANDOFF.md` 第 3 節的準備步驟後，照下面做：
