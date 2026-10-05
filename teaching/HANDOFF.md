@@ -51,7 +51,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 4 | 第 3 步：personal-code-reviewer 比較兩輪的 Go 程式（4-3 節） | ✅ 2026-10-05 完成（由記錄判讀） | 模型自己說明「agent 在 session 開始時載入，要重開」（證實第 2 步推測）。重開後主對話**平行派 2 個審查員**（書上 1 個），用 Go 1.27 實際編譯＋200 組隨機比對全部正確。直接生成 7／7.5（1 項必修：同目錄兩個 `package main`）、subagent 版 8／7.5；幾乎打平，和舊機一致。舊機的 Lomuto 重複值退化**這次兩邊都沒有**（一邊中間 pivot 原地、一邊三路切分）。使用者開的是 `/usage` 不是 `/cost`，無成本數據 |
 | 4 | 第 4 步：4 個 subagent 新聞團隊（4-4 節） | ✅ 2026-10-05 完成（由記錄判讀） | 只貼提示詞時模型先停下確認。順序照書：aggregator＋style 同秒派出（2 分 12 秒／5 分 15 秒）→ 等兩者完成才派 summarizer（49 秒）→ page-builder（1 分 36 秒），總約 9 分鐘。自行截桌面／手機寬驗證；刊頭自訂、不用 TIME 商標與新聞照片。agent 定義要存 `output/`，但主對話派工時另指定位置 → 只有風格指南在 `output/`（**主對話指示蓋過 agent 設定**）。仍開 `/usage`，第 4 章無成本數據 |
 | 5 | 第 1 步：`claude --chrome` 讀 Console 找圖表錯誤（5-2 節） | ✅ 2026-10-05 完成（由記錄判讀） | 44 秒。navigate → console → network → screenshot → 讀程式碼，找到的 2 個錯誤和舊機相同（`graph`／`graphTrend`、`updateChart(currentCityData)` 傳空物件）。另外用 `git diff` 指出是 `ecc4da1`／`a92812c` 引入、疑似故意放的，**沒擅自修**；並推測 `map.js:35` 點地圖也會錯（註明未實測）。沒提 sb-admin 404 |
-| 5 | 第 2 步：Playwright MCP 安裝、測試、修正、點遍縣市（5-3 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch05-step2.txt`／`ch05-step2.mp4`。Windows 用 `claude mcp add playwright -- cmd /c npx @playwright/mcp@latest`；`MAX_MCP_OUTPUT_TOKENS` 改寫在專案 settings.local.json |
+| 5 | 第 2 步：Playwright MCP 安裝、測試、修正、點遍縣市（5-3 節） | ✅ 2026-10-05 完成（由記錄判讀） | 三句一次貼，約 6.8 分鐘。MCP 裝在 local scope（無 `.mcp.json`）。除 2 個圖表錯誤外，另找出報酬率少 ÷100、滑桿事件重複綁定、驗證訊息堆疊、sb-admin 404；HTML 直接改，JS 走 code-writer→code-qa。用 `browser_run_code_unsafe` 一次點完 21 縣市只回傳摘要 → **沒遇到截斷**；金門租金資料不足、連江無資料。commit `9f2b6ed`，**嘗試 push 到 FlagTech 原 repo 被 403 拒絕**（全域「commit 後一律 push」造成）。該 session 回覆**飄成英文** |
+| 5 | 第 3 步：Playwright CLI＋官方 Skill＋自建 `playwright-test` Skill（5-4 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch05-step3.txt`／`ch05-step3.mp4`。比較用 `/context` 看 MCP 與 Skill 佔用 |
 | 5–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
