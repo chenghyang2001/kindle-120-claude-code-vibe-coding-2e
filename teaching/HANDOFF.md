@@ -59,7 +59,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 6 | 第 4 步：JSON 輸出 deny → ask → updatedInput（6-4 節） | ✅ 2026-10-05 完成（由記錄判讀） | 書上文件網址已轉到 `code.claude.com/docs/en/hooks`。deny：擋下並顯示原因 ✅。ask：拒絕後模型停下等待，再次要求後允許成功；模型指出原因文字與行為不一致。**updatedInput 和舊機相反**：hook 是模型自己寫的，它知道 Read 會被導向，改用 `cat` 繞開，沒被騙 → 要重現須在不知情的新 session 測。模型自測時多次得到「Wasted call — file unchanged」（重複讀取被快取，hook 根本沒觸發）。已移除 Read hook 並驗證 |
 | 6 | 第 5 步：`if` 條件（Write/Edit 只對 tasks.json ask；Bash rm／sudo／chmod deny）（6-5 節前半） | ✅ 2026-10-05 完成（由記錄判讀） | `if`: `Write(**/tasks.json)`、`Edit(**/tasks.json)`、`Bash(rm *)` 等。4 個測試都符合預期，和舊機一致。額外驗證 `echo ok && rm …` 也被擋（子指令分開比對）。被擋時明說不改用 Remove-Item／os.remove 繞過，建議用 `!`。留下 `dummy-hook-test.txt`（模型自己 rm 不掉） |
 | 6 | 第 6 步：外部 Python 程式分級（rm/sudo deny、curl/mv ask）＋prompt 型 hook（6-5 節後半） | ✅ 2026-10-05 完成（由記錄判讀） | `.claude/hooks/bash_guard.py`（uv 執行），writer/QA/reviewer 約 11 分鐘；**reviewer 在 Git Bash 實測出 `(rm x)`、`{ rm x; }`、`command rm`、`env rm`、`RM`、`bash -c` 都能繞過**，修正後 45 個自測。mv → ask、rm → deny ✅。prompt 型：`claude-opus-5-5`、timeout 15，**prompt 欄位留空**（產生的 prompt 只貼在對話未寫入），空 prompt 下模型仍自行判斷拒絕 `cat .env`、放行 `cat src/todo.py`。**擋下後 Claude 最後回覆為空，和舊機一致** |
-| 7 | 第 1 步：Claude Code Desktop 做訂餐前端＋Preview（7-1 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch07-step1.txt`／`ch07-step1.mp4`。本機已裝 Claude 桌面版 1.52386.3.0（MSIX）。練習資料夾 `k120-ch07-practice` |
+| 7 | 第 1 步：Claude Code Desktop 做訂餐前端＋Preview（7-1 節） | ✅ 2026-10-05 完成（由截圖判讀） | 桌面版：左側依專案分組的對話清單、中間對話（底部切模式／模型／effort、語音輸入）、右側 Preview 是內建瀏覽器分頁（file:// 開 index.html，可直接操作）。分析菜單因 CORS 改為 1.5 秒後回範例菜單（6 品項），合計即時計算正確；送出訂單只跳摘要。commit `4abc238`（無遠端），1 分 37 秒、3.5k tokens |
+| 7 | 第 2 步：Remote Control 手機遙控寫 Flask 後端（7-2 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch07-step2.txt`／`ch07-step2.mp4`；完整說明另存 `teaching/steps/ch07-step2.md`（終端機顯示易截斷，改開記事本）。port 5000 空著 |
 | 7–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
