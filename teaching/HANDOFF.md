@@ -34,8 +34,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 章 | 步 | 狀態 | 備註 |
 | --- | --- | --- | --- |
 | 1 | 第 1 步：確認安裝方式、版本、自動更新（1-2 節） | ✅ 在原機器完成 | 原機器是 npm 安裝，和書不同 |
-| 1 | 第 1 步（新電腦重做）：用 `/doctor` 實際量測 | ⏳ **進行中，等使用者回報 /doctor 結果** | 2026-10-05 新電腦：`claude.exe` 在 `~/.local/bin`（推測原生）。旁白／影片：`ch01-step1.txt`／`ch01-step1.mp4` |
-| 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | 未開始 | 舊旁白 `ch01-step1-2.txt` 前半是判讀原機器，新電腦要重寫判讀段 |
+| 1 | 第 1 步（新電腦重做）：用 `/doctor` 實際量測 | ✅ 2026-10-05 完成 | native、2.1.289、頻道 latest、**自動更新關閉**（`~/.claude.json` 的 `autoUpdates: false`，和書及原機器不同）。回報的依據是設定檔＋`--version`，不是 doctor 畫面原文 |
+| 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch01-step2.txt`／`ch01-step2.mp4`。待回報：自動更新要不要開、三個觀察點、`! scoop --version`、PowerShell 7 是否裝好 |
 | 1 | 第 3 步：`-c`／`--resume` 接續對話、auto memory、`!` 模式（1-3 節） | 未開始 | |
 | 1 | 第 4 步：Windows 上 `!` 模式用的是哪個 shell（1-4 節） | 未開始 | |
 | 2–9 | 見 `LESSON-PLAN.md` | 未開始 | |
