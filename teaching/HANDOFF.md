@@ -55,7 +55,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 5 | 第 3 步：Playwright CLI＋官方 Skill＋自建 `playwright-test` Skill（5-4 節） | ✅ 2026-10-05 完成（由記錄判讀） | 使用者要求使用者層級 → 官方 skill 用 `--global` 裝到 `~/.claude/skills/playwright-cli`（未提交，教學 session 也看得到）。首測又找到 4 個問題（缺資料留舊值、利率 1.75 vs 2.25、坪數 ≤0、預設 radio），使用者要求修 → writer/QA/reviewer＋重測。自建 SKILL.md 224 行、11 步、`disable-model-invocation: true`、allowed-tools 只開 playwright-cli/curl 等；`/playwright-test` 全過且**遵守「只測不改」**，抓到錯誤框一字一行。新增 21 縣市步驟（從地圖讀清單，約 16 秒）。`/context`：Skills 9.9k 計入、**MCP tools 61.8k 延遲載入不計入** → MCP 佔 context 的問題比書上小。本機累積 4 個 commit 無法 push |
 | 6 | 第 1 步：PreToolUse exit 2／PostToolUse exit 2／PreToolUse exit 1（6-2 節前半） | ✅ 2026-10-05 完成（由記錄判讀） | **hook 設定改了立即生效，不必重開**（2.1.289 會偵測設定檔變化）。Claude 預期自己會被擋，把寫檔＋驗證＋commit 合成一個指令（`6852f9a`）。t1 被擋、`No stderr output`、明說不繞過 ✅。t2 PostToolUse 擋不住，事後回報錯誤 ✅。t3 使用者只改 `exit 1`、沒改回 Pre → 實測 Post＋exit 1，檔案被改且模型看不到錯誤。全程無全域 Stop hook 訊息 → `--setting-sources project,local` 有效 |
 | 6 | 第 2 步：先 stderr 說明原因再 `exit 2`（6-2 節後半） | ✅ 2026-10-05 完成（由記錄判讀） | **hook 擋住了修改 hook 本身**；使用者說「你來做」模型仍拒絕繞過，並指出 **`!` 指令是使用者執行、不受 hook 攔截**。使用者刪掉 PreToolUse 後，模型一次寫檔＋驗證＋commit（`237aa73`）。測試時錯誤變成指定原因，tasks.json 未變，回覆引用原因，和舊機一致。錯誤訊息固定前綴整段 hook 指令 |
-| 6 | 第 3 步：Notification hook → Telegram（6-3 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch06-step3.txt`／`ch06-step3.mp4`。需先手刪 PreToolUse；建議 Token 由使用者自己填 `.env`（不要貼進對話）並確認 gitignore；本機無 TELEGRAM 環境變數 |
+| 6 | 第 3 步：Notification hook → Telegram（6-3 節） | ⏭️ 2026-10-05 **使用者決定這台先跳過**（無 Bot Token） | 旁白／影片：`ch06-step3.txt`／`ch06-step3.mp4` 已做好，之後補做可直接用。建議 Token 由使用者自己填 `.env`，不要貼進對話 |
+| 6 | 第 4 步：JSON 輸出 deny → ask → updatedInput（6-4 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch06-step4.txt`／`ch06-step4.mp4`。開始時 hooks 為空；deny 後由使用者手改成 ask；測完要刪 updatedInput hook |
 | 6–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
