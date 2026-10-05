@@ -41,7 +41,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 2 | 第 1 步：`/memory` 寫 CLAUDE.md（uv 三條規則）＋設定編輯器（2-1 節） | ✅ 2026-10-05 完成（由記錄＋檔案判讀） | 選 Cursor（`.claude/settings.local.json` 的 `EDITOR=cursor`），`/memory` 成功開啟 `./CLAUDE.md`。回答照 uv 規則，但它先 `cat CLAUDE.md`（檔案在 session 中途才建立），自動載入未獨立驗證。多出 `.claude/session-state.md`（全域 hook 產生）。CLAUDE.md 每行前多 2 個空白（從聊天複製帶入） |
 | 2 | 第 2 步：貼初始提示詞開發浮水印工具（2-2 節） | ✅ 2026-10-05 完成（由記錄＋實測判讀） | 旁白／影片：`ch02-step2.txt`／`ch02-step2.mp4`。全域 `enforce_writer_qa.py` hook 會擋直接寫 .py，模型會改走 writer→QA agent 並先問複雜度。實際：uv＋pypdf＋reportlab；5 輪 QA＋4 輪 reviewer，約 33 分鐘；`add_watermark.py` 410 行（書附 121 行）。sample_wm 5 頁＋sample_rotated_wm 7 頁，實測 12 頁都有 Confidential。reviewer 抓到書籤遺失、共用內容雙重浮水印、AES 錯誤訊息、輸出膨脹 7 倍等 |
 | 2 | 第 3 步：acceptEdits、`/rewind`（書上稱 checkpoint）、`/init`、git commit（2-2 節） | ✅ 2026-10-05 完成（由記錄＋實測判讀） | acceptEdits 下改紅色未詢問（1 行，hook 豁免）。**rewind 還原了 `add_watermark.py`，但 Bash 產生的 `sample_wm.pdf` 仍是紅色**（rewind 不追蹤 Bash 的檔案變更）。`/init` 把 CLAUDE.md 從 9 行改寫成 59 行，uv 規則保留，加了 8 條不變量。git：6 個檔案，`.gitignore` 排除 *.pdf／.venv／settings.local.json；已推到公開 repo `chenghyang2001/k120-ch02-practice` |
-| 2 | 第 4 步：worktree＋plan 模式依 `web_prd.md` 做網頁版（2-3 節，port 5050） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch02-step4.txt`／`ch02-step4.mp4`。worktree 路徑 `k120-ch02-practice-web`，分支 `web` |
+| 2 | 第 4 步：worktree＋plan 模式依 `web_prd.md` 做網頁版（2-3 節，port 5050） | ✅ 2026-10-05 完成（由記錄＋實測判讀） | worktree `k120-ch02-practice-web`／分支 `web`，commit `f401b39` 已 push。模型自己呼叫 EnterPlanMode（不是使用者 Shift+Tab）；中等、不派 reviewer，約 8 分鐘。標準函式庫 http.server（書附用 FastAPI）；前端拆 index.html／style.css／app.js＋bg.svg；固定深色背景。用 claude-in-chrome 實測上傳下載。**教學疏失：給使用者的 PRD 漏了第 6 條（cache 資料夾、不提交）**，實作放系統暫存資料夾，未提交 |
+| 2 | 第 5 步：`claude -p`＋`front_end/CLAUDE.md` 與 `.claude/rules/web.md`（paths）比較（2-4 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch02-step5.txt`／`ch02-step5.mp4`。現有 style.css／app.js 不符規則的 index.css／index.js，正好當測試 |
 | 2–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
