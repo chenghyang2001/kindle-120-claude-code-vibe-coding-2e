@@ -270,7 +270,7 @@ def render_video(workdir):
              "-f", "lavfi", "-i", "color=c=0x1e1e2e:s=1280x720:r=24",
              "-i", "narration.m4a",
              "-f", "lavfi", "-i", "color=c=0xa6e3a1:s=1280x12:r=24",
-             "-filter_complex_script", "filters_complex.txt",
+             "-/filter_complex", "filters_complex.txt",  # ffmpeg 9 已移除 -filter_complex_script，「-/」前綴是 7.0 起的讀檔寫法
              "-map", "[v]", "-map", "1:a", "-c:v", "libx264", "-preset", "veryfast",
              "-tune", "stillimage", "-pix_fmt", "yuv420p", "-c:a", "copy", "-shortest",
              "out.mp4"], workdir, "ffmpeg 產生影片", timeout=3600)

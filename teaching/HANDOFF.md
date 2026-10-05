@@ -33,8 +33,9 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 
 | 章 | 步 | 狀態 | 備註 |
 | --- | --- | --- | --- |
-| 1 | 第 1 步：確認安裝方式、版本、自動更新（1-2 節） | ✅ 在原機器完成 | 原機器是 npm 安裝，和書不同。**新電腦請照書用原生安裝**，正好重做一次 |
-| 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | ⏳ **從這裡接續** | 旁白和影片已做好：`teaching/narration/ch01-step1-2.txt`、`teaching/videos/ch01-step1-2.mp4` |
+| 1 | 第 1 步：確認安裝方式、版本、自動更新（1-2 節） | ✅ 在原機器完成 | 原機器是 npm 安裝，和書不同 |
+| 1 | 第 1 步（新電腦重做）：用 `/doctor` 實際量測 | ⏳ **進行中，等使用者回報 /doctor 結果** | 2026-10-05 新電腦：`claude.exe` 在 `~/.local/bin`（推測原生）。旁白／影片：`ch01-step1.txt`／`ch01-step1.mp4` |
+| 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | 未開始 | 舊旁白 `ch01-step1-2.txt` 前半是判讀原機器，新電腦要重寫判讀段 |
 | 1 | 第 3 步：`-c`／`--resume` 接續對話、auto memory、`!` 模式（1-3 節） | 未開始 | |
 | 1 | 第 4 步：Windows 上 `!` 模式用的是哪個 shell（1-4 節） | 未開始 | |
 | 2–9 | 見 `LESSON-PLAN.md` | 未開始 | |
@@ -153,4 +154,6 @@ python teaching\tools\make_caption_video.py teaching\narration\ch01-step1-2.txt 
 | 字幕的進度條動不了 | ffmpeg 的 `drawbox` 不能用時間 `t` 做動畫 | 工具已改用 `overlay` 搭配 `eval=frame` |
 | Flask 或 uvicorn 關掉之後，port 還被占用 | 自動重新載入（reloader）的子行程沒有一起關掉 | 用 `Get-NetTCPConnection -LocalPort <port>` 找出真正占用的 PID 再關掉 |
 | Git Bash 用 curl 送中文 JSON 收到 400 | 編碼問題 | 改用 Python 的 `urllib` |
+| 字幕影片工具報 `Unrecognized option 'filter_complex_script'` | winget 現在裝的是 ffmpeg 9，已移除這個舊參數 | 工具已改用 `-/filter_complex`（ffmpeg 7.0 起支援）；2026-10-05 新電腦修正 |
+| winget 裝完 ffmpeg／uv 後，終端機還是找不到 | 使用者 PATH 已寫入，但已開啟的終端機不會重讀 | 開新的終端機 |
 | 第 9 章下載影片失敗 | 範例鎖定 Python 3.9，新版 yt-dlp 已不支援 | 另外建一個 Python 3.12 的虛擬環境，做法見 `README.md` |
