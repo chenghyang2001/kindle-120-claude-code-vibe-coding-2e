@@ -38,7 +38,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | ✅ 2026-10-05 完成 | scoop v0.6.0（`~/scoop`）、autoUpdates 已改 true、pwsh 7.6.6。和書不同：沒貼書上提示詞；全域 CLAUDE.md 讓模型先說「優先用 winget」；auto 模式沒逐條詢問；**2.1.289 的 `/doctor` 是模型跑指令的健康檢查＋提出清理**，不是固定畫面（已改了全域 settings／CLAUDE.md／85 個 skill 描述） |
 | 1 | 第 3 步：`-c`／`--resume` 接續對話、auto memory、`!` 模式（1-3 節） | ✅ 2026-10-05 完成（由對話記錄判讀） | `! scoop --version` 成功 v0.6.0。PATH 生效有兩層：外層終端機＋Claude Code 的 shell 快照（`~/.claude/shell-snapshots/`）；練習 session 在 `~/.bashrc` 補了 scoop 路徑。`-c`／`--resume` 都接回同一個 doctor session；資料夾 12 個記錄中 11 個是 Stop hook 用 `claude -p` 產生（entrypoint `sdk-cli`）。`/memory` 開了沒選檔就取消 |
 | 1 | 第 4 步：Windows 上 `!` 模式用的是哪個 shell（1-4 節） | ✅ 2026-10-05 完成（由對話記錄判讀） | `echo $0` → `/usr/bin/bash`（Git Bash，和書一致）；PATH 第一個是 `.bashrc` 補的 scoop，Windows 那份還沒進來（WT 未整個重開）。模型說只拿到 Bash 工具；環境資訊的「PowerShell (primary)」是 OS 預設 shell，不等於有 PowerShell 工具。resume 清單筆數使用者未回報 |
-| 2 | 第 1 步：`/memory` 寫 CLAUDE.md（uv 三條規則）＋設定編輯器（2-1 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch02-step1.txt`／`ch02-step1.mp4`。新電腦**沒有 VS Code**（只有 Cursor）；EDITOR 改寫在練習資料夾的 `.claude/settings.local.json`，因為使用者層 settings.json 會同步到其他電腦 |
+| 2 | 第 1 步：`/memory` 寫 CLAUDE.md（uv 三條規則）＋設定編輯器（2-1 節） | ✅ 2026-10-05 完成（由記錄＋檔案判讀） | 選 Cursor（`.claude/settings.local.json` 的 `EDITOR=cursor`），`/memory` 成功開啟 `./CLAUDE.md`。回答照 uv 規則，但它先 `cat CLAUDE.md`（檔案在 session 中途才建立），自動載入未獨立驗證。多出 `.claude/session-state.md`（全域 hook 產生）。CLAUDE.md 每行前多 2 個空白（從聊天複製帶入） |
+| 2 | 第 2 步：貼初始提示詞開發浮水印工具（2-2 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch02-step2.txt`／`ch02-step2.mp4`。預期全域 `enforce_writer_qa.py` hook 會擋直接寫 .py，模型會改走 writer→QA agent 並先問複雜度，這和書上流程不同 |
 | 2–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
