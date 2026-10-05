@@ -56,7 +56,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 6 | 第 1 步：PreToolUse exit 2／PostToolUse exit 2／PreToolUse exit 1（6-2 節前半） | ✅ 2026-10-05 完成（由記錄判讀） | **hook 設定改了立即生效，不必重開**（2.1.289 會偵測設定檔變化）。Claude 預期自己會被擋，把寫檔＋驗證＋commit 合成一個指令（`6852f9a`）。t1 被擋、`No stderr output`、明說不繞過 ✅。t2 PostToolUse 擋不住，事後回報錯誤 ✅。t3 使用者只改 `exit 1`、沒改回 Pre → 實測 Post＋exit 1，檔案被改且模型看不到錯誤。全程無全域 Stop hook 訊息 → `--setting-sources project,local` 有效 |
 | 6 | 第 2 步：先 stderr 說明原因再 `exit 2`（6-2 節後半） | ✅ 2026-10-05 完成（由記錄判讀） | **hook 擋住了修改 hook 本身**；使用者說「你來做」模型仍拒絕繞過，並指出 **`!` 指令是使用者執行、不受 hook 攔截**。使用者刪掉 PreToolUse 後，模型一次寫檔＋驗證＋commit（`237aa73`）。測試時錯誤變成指定原因，tasks.json 未變，回覆引用原因，和舊機一致。錯誤訊息固定前綴整段 hook 指令 |
 | 6 | 第 3 步：Notification hook → Telegram（6-3 節） | ⏭️ 2026-10-05 **使用者決定這台先跳過**（無 Bot Token） | 旁白／影片：`ch06-step3.txt`／`ch06-step3.mp4` 已做好，之後補做可直接用。建議 Token 由使用者自己填 `.env`，不要貼進對話 |
-| 6 | 第 4 步：JSON 輸出 deny → ask → updatedInput（6-4 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch06-step4.txt`／`ch06-step4.mp4`。開始時 hooks 為空；deny 後由使用者手改成 ask；測完要刪 updatedInput hook |
+| 6 | 第 4 步：JSON 輸出 deny → ask → updatedInput（6-4 節） | ✅ 2026-10-05 完成（由記錄判讀） | 書上文件網址已轉到 `code.claude.com/docs/en/hooks`。deny：擋下並顯示原因 ✅。ask：拒絕後模型停下等待，再次要求後允許成功；模型指出原因文字與行為不一致。**updatedInput 和舊機相反**：hook 是模型自己寫的，它知道 Read 會被導向，改用 `cat` 繞開，沒被騙 → 要重現須在不知情的新 session 測。模型自測時多次得到「Wasted call — file unchanged」（重複讀取被快取，hook 根本沒觸發）。已移除 Read hook 並驗證 |
+| 6 | 第 5 步：`if` 條件（Write/Edit 只對 tasks.json ask；Bash rm／sudo／chmod deny）（6-5 節前半） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch06-step5.txt`／`ch06-step5.mp4`。6-5 拆兩步：外部程式＋prompt 型 hook 留到第 6 步 |
 | 6–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
