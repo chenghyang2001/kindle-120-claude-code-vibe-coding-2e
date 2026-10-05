@@ -43,7 +43,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 2 | 第 3 步：acceptEdits、`/rewind`（書上稱 checkpoint）、`/init`、git commit（2-2 節） | ✅ 2026-10-05 完成（由記錄＋實測判讀） | acceptEdits 下改紅色未詢問（1 行，hook 豁免）。**rewind 還原了 `add_watermark.py`，但 Bash 產生的 `sample_wm.pdf` 仍是紅色**（rewind 不追蹤 Bash 的檔案變更）。`/init` 把 CLAUDE.md 從 9 行改寫成 59 行，uv 規則保留，加了 8 條不變量。git：6 個檔案，`.gitignore` 排除 *.pdf／.venv／settings.local.json；已推到公開 repo `chenghyang2001/k120-ch02-practice` |
 | 2 | 第 4 步：worktree＋plan 模式依 `web_prd.md` 做網頁版（2-3 節，port 5050） | ✅ 2026-10-05 完成（由記錄＋實測判讀） | worktree `k120-ch02-practice-web`／分支 `web`，commit `f401b39` 已 push。模型自己呼叫 EnterPlanMode（不是使用者 Shift+Tab）；中等、不派 reviewer，約 8 分鐘。標準函式庫 http.server（書附用 FastAPI）；前端拆 index.html／style.css／app.js＋bg.svg；固定深色背景。用 claude-in-chrome 實測上傳下載。**教學疏失：給使用者的 PRD 漏了第 6 條（cache 資料夾、不提交）**，實作放系統暫存資料夾，未提交 |
 | 2 | 第 5 步：`claude -p`＋`front_end/CLAUDE.md` 與 `.claude/rules/web.md`（paths）比較（2-4 節） | ✅ 2026-10-05 完成（由記錄判讀） | **對照組被破壞**：使用者把教學說明整段貼給互動 session，它建規則檔時就順手改名成 index.css／index.js（`c2103fd`），之後兩次 `-p` 都答「符合」。兩次 `-p` 都自己 `cat` 規則檔，無法證明自動載入。第二次 `-p` 把 paths 擅自擴大成 html／css／js（`b67d78a`，和書上不同）。互動 session 與 `-p` 同時在同一 worktree 改檔、commit；5050 伺服器中途停過一次（原因未查證）。**教訓：之後請使用者自己打指令，不要整段貼教學說明** |
-| 3 | 第 1 步：`/context`、右下角 token、`/cost`、`/usage`、`/stats`、`/diff` | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch03-step1.txt`／`ch03-step1.mp4`。在 `k120-ch02-practice-web` 操作 |
+| 3 | 第 1 步：`/context`、右下角 token、`/cost`、`/usage`、`/stats`、`/diff` | ✅ 2026-10-05 部分完成（只有 `/context` 有紀錄） | Opus 5.5，分母 **1m**，183.4k（18%）；Messages 92k、Memory files 35.1k、Custom agents 18.7k、System tools 18.4k；**Autocompact buffer 33k＝書上 20k 摘要＋13k 緩衝**；deferred MCP＋系統工具約 71.7k 不計入。`/usage` 開了 3 次都關掉；跑過 `/usage-credits`（登入成功後中斷）；`/cost`／`/stats`／`/diff` 無紀錄 |
+| 3 | 第 2 步：`/model`、`/config`、`/permissions`、`/statusline` | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch03-step2.txt`／`ch03-step2.mp4`。全域已有 statusLine（同步到其他電腦），請使用者只寫進專案 `settings.local.json` |
 | 3–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
