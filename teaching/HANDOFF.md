@@ -35,8 +35,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | --- | --- | --- | --- |
 | 1 | 第 1 步：確認安裝方式、版本、自動更新（1-2 節） | ✅ 在原機器完成 | 原機器是 npm 安裝，和書不同 |
 | 1 | 第 1 步（新電腦重做）：用 `/doctor` 實際量測 | ✅ 2026-10-05 完成 | native、2.1.289、頻道 latest、**自動更新關閉**（`~/.claude.json` 的 `autoUpdates: false`，和書及原機器不同）。回報的依據是設定檔＋`--version`，不是 doctor 畫面原文 |
-| 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch01-step2.txt`／`ch01-step2.mp4`。待回報：自動更新要不要開、三個觀察點、`! scoop --version`、PowerShell 7 是否裝好 |
-| 1 | 第 3 步：`-c`／`--resume` 接續對話、auto memory、`!` 模式（1-3 節） | 未開始 | |
+| 1 | 第 2 步：請 Claude Code 安裝 scoop（1-3 節） | ✅ 2026-10-05 完成 | scoop v0.6.0（`~/scoop`）、autoUpdates 已改 true、pwsh 7.6.6。和書不同：沒貼書上提示詞；全域 CLAUDE.md 讓模型先說「優先用 winget」；auto 模式沒逐條詢問；**2.1.289 的 `/doctor` 是模型跑指令的健康檢查＋提出清理**，不是固定畫面（已改了全域 settings／CLAUDE.md／85 個 skill 描述） |
+| 1 | 第 3 步：`-c`／`--resume` 接續對話、auto memory、`!` 模式（1-3 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch01-step3.txt`／`ch01-step3.mp4`。要開新終端機視窗，`! scoop --version` 才會成功；注意 resume 清單會出現 Stop hook 記憶萃取器產生的 session |
 | 1 | 第 4 步：Windows 上 `!` 模式用的是哪個 shell（1-4 節） | 未開始 | |
 | 2–9 | 見 `LESSON-PLAN.md` | 未開始 | |
 
