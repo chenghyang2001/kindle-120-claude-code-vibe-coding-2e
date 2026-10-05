@@ -24,7 +24,7 @@
    `~/.claude/projects/C--Users-USER-workspace-<練習資料夾名>/*.jsonl`（略過開頭是「你是一個嚴格的記憶萃取器」的 sdk-cli session），再加上實際檢查檔案、git log、port。
 2. **使用者用 cmd（不是 PowerShell）**：指令用 `%USERPROFILE%`、`set VAR=1`，不要給 `$env:`。
 3. **播放影片**：`make_caption_video.py` 產生後，用 PowerShell `Start-Process` 開 VLC（Git Bash 的 `&` 背景啟動會失敗，VLC 不會出現）：
-   `powershell -NoProfile -Command "Start-Process -FilePath 'C:\Program Files\VideoLAN\VLClc.exe' -ArgumentList '--play-and-exit','--no-video-title-show','\"<mp4 Windows 路徑>\"'"`
+   `powershell -NoProfile -Command "Start-Process -FilePath 'C:\Program Files\VideoLAN\VLC\vlc.exe' -ArgumentList '--play-and-exit','--no-video-title-show','\"<mp4 Windows 路徑>\"'"`
 4. **說明另存成檔案**：終端機顯示會截斷，從第 7 章起每步另寫 `teaching/steps/chNN-stepX.md`，並用 `notepad.exe` 開啟。
 5. **Git Bash 的 PATH 沒有 ffmpeg**：產生影片前先
    `export PATH="$LOCALAPPDATA/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin:$PATH"`
