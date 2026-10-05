@@ -45,8 +45,9 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 2 | 第 5 步：`claude -p`＋`front_end/CLAUDE.md` 與 `.claude/rules/web.md`（paths）比較（2-4 節） | ✅ 2026-10-05 完成（由記錄判讀） | **對照組被破壞**：使用者把教學說明整段貼給互動 session，它建規則檔時就順手改名成 index.css／index.js（`c2103fd`），之後兩次 `-p` 都答「符合」。兩次 `-p` 都自己 `cat` 規則檔，無法證明自動載入。第二次 `-p` 把 paths 擅自擴大成 html／css／js（`b67d78a`，和書上不同）。互動 session 與 `-p` 同時在同一 worktree 改檔、commit；5050 伺服器中途停過一次（原因未查證）。**教訓：之後請使用者自己打指令，不要整段貼教學說明** |
 | 3 | 第 1 步：`/context`、右下角 token、`/cost`、`/usage`、`/stats`、`/diff` | ✅ 2026-10-05 部分完成（只有 `/context` 有紀錄） | Opus 5.5，分母 **1m**，183.4k（18%）；Messages 92k、Memory files 35.1k、Custom agents 18.7k、System tools 18.4k；**Autocompact buffer 33k＝書上 20k 摘要＋13k 緩衝**；deferred MCP＋系統工具約 71.7k 不計入。`/usage` 開了 3 次都關掉；跑過 `/usage-credits`（登入成功後中斷）；`/cost`／`/stats`／`/diff` 無紀錄 |
 | 3 | 第 2 步：`/model`、`/config`、`/permissions`、`/statusline` | ✅ 2026-10-05 完成（由記錄＋檔案判讀） | `/model` 保持 Opus 5.5（預設）；`/config`、`/permissions` 開了就關，無內容紀錄。`/statusline` 派 statusline-setup agent，**只寫入專案 `.claude/settings.local.json`**（全域未動、已被 gitignore），是一行 jq 指令而非獨立腳本；模擬輸出 `k120-ch02-practice-web \| web \| ctx 18%` |
-| 3 | 第 3 步：`/loop`（本機）與 `/schedule`（雲端）比較 | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch03-step3.txt`／`ch03-step3.mp4`。`/schedule` 只看不建（會耗額度、碰不到本機） |
-| 3–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
+| 3 | 第 3 步：`/loop`（本機）與 `/schedule`（雲端）比較 | ✅ 2026-10-05 完成（由記錄判讀） | `/loop` → CronCreate `*/1 * * * *`（session-only、7 天自動失效），立即回報 1 次＋12:11:02、12:12:02 準時觸發（提示詞以新訊息注入）；輸入 stop → CronDelete。`/schedule` 是 skill 流程（AskUserQuestion → RemoteTrigger list），帳號內 20 個 routine 全為已執行完的一次性提醒 |
+| 4 | 第 1 步：`/agents` 建 Technical Translator，兩種提示詞翻 `en.txt`（4-1 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch04-step1.txt`／`ch04-step1.mp4`。練習資料夾 `k120-ch04-practice`。注意全域 `translate-zh` skill 可能搶走第一句 |
+| 4–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
 
