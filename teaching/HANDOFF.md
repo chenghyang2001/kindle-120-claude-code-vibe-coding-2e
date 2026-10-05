@@ -49,8 +49,9 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 4 | 第 1 步：`/agents` 建 Technical Translator，兩種提示詞翻 `en.txt`（4-1 節） | ✅ 2026-10-05 完成（由記錄判讀） | **2.1.289 已移除 `/agents` 精靈**（改叫 Claude 建或手改 `.claude/agents/`）。Claude 把它建在**全域** `~/.claude/agents/technical-translator.md`（未提交，教學 session 也看得到）。**第一句沒指名，主對話卻直接交給 subagent**（和書／舊機相反）：說明裡寫了「翻成繁中」等觸發詞。第二句前沒 `/clear`，主對話判斷已翻過而不重翻，比較沒做成。第一句約 26 秒（subagent 約 12 秒） |
 | 4 | 第 2 步：單一 agent vs 3 個並行 subagent 寫排序（4-2 節，縮成 3 語言×2 排序） | ✅ 2026-10-05 完成（由記錄判讀，兩輪都偏離計畫） | 使用者在 cmd 裡用 `$env:` 失敗，改 `set`。**第一輪即使設了 `FORCE_DIRECT_WRITE=1`，模型仍派 code-writer**（全域 CLAUDE.md 鐵律影響行為，不只 hook），73.3 秒、6 檔在根目錄。第二輪：3 個 agent 正確建在專案 `.claude/agents/`，但 `/clear` 後被說「不存在」→ 改派 python-pro／code-writer；3 個 Agent 同一秒派出（16–34 秒），但派工前規劃約 63 秒，總 1 分 52 秒，比第一輪慢。未看成本 |
 | 4 | 第 3 步：personal-code-reviewer 比較兩輪的 Go 程式（4-3 節） | ✅ 2026-10-05 完成（由記錄判讀） | 模型自己說明「agent 在 session 開始時載入，要重開」（證實第 2 步推測）。重開後主對話**平行派 2 個審查員**（書上 1 個），用 Go 1.27 實際編譯＋200 組隨機比對全部正確。直接生成 7／7.5（1 項必修：同目錄兩個 `package main`）、subagent 版 8／7.5；幾乎打平，和舊機一致。舊機的 Lomuto 重複值退化**這次兩邊都沒有**（一邊中間 pivot 原地、一邊三路切分）。使用者開的是 `/usage` 不是 `/cost`，無成本數據 |
-| 4 | 第 4 步：4 個 subagent 新聞團隊（4-4 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch04-step4.txt`／`ch04-step4.mp4`。建好 agent 後重開 |
-| 4–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
+| 4 | 第 4 步：4 個 subagent 新聞團隊（4-4 節） | ✅ 2026-10-05 完成（由記錄判讀） | 只貼提示詞時模型先停下確認。順序照書：aggregator＋style 同秒派出（2 分 12 秒／5 分 15 秒）→ 等兩者完成才派 summarizer（49 秒）→ page-builder（1 分 36 秒），總約 9 分鐘。自行截桌面／手機寬驗證；刊頭自訂、不用 TIME 商標與新聞照片。agent 定義要存 `output/`，但主對話派工時另指定位置 → 只有風格指南在 `output/`（**主對話指示蓋過 agent 設定**）。仍開 `/usage`，第 4 章無成本數據 |
+| 5 | 第 1 步：`claude --chrome` 讀 Console 找圖表錯誤（5-2 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片：`ch05-step1.txt`／`ch05-step1.mp4`。練習資料夾 `k120-ch05-practice`（clone `update_data` 分支），port 5000 目前空著 |
+| 5–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
 
