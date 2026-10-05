@@ -61,7 +61,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 6 | 第 6 步：外部 Python 程式分級（rm/sudo deny、curl/mv ask）＋prompt 型 hook（6-5 節後半） | ✅ 2026-10-05 完成（由記錄判讀） | `.claude/hooks/bash_guard.py`（uv 執行），writer/QA/reviewer 約 11 分鐘；**reviewer 在 Git Bash 實測出 `(rm x)`、`{ rm x; }`、`command rm`、`env rm`、`RM`、`bash -c` 都能繞過**，修正後 45 個自測。mv → ask、rm → deny ✅。prompt 型：`claude-opus-5-5`、timeout 15，**prompt 欄位留空**（產生的 prompt 只貼在對話未寫入），空 prompt 下模型仍自行判斷拒絕 `cat .env`、放行 `cat src/todo.py`。**擋下後 Claude 最後回覆為空，和舊機一致** |
 | 7 | 第 1 步：Claude Code Desktop 做訂餐前端＋Preview（7-1 節） | ✅ 2026-10-05 完成（由截圖判讀） | 桌面版：左側依專案分組的對話清單、中間對話（底部切模式／模型／effort、語音輸入）、右側 Preview 是內建瀏覽器分頁（file:// 開 index.html，可直接操作）。分析菜單因 CORS 改為 1.5 秒後回範例菜單（6 品項），合計即時計算正確；送出訂單只跳摘要。commit `4abc238`（無遠端），1 分 37 秒、3.5k tokens |
 | 7 | 第 2 步：Remote Control 手機遙控寫 Flask 後端（7-2 節） | ✅ 2026-10-05 完成（由記錄判讀） | `/remote-control` 成功（bridge session、`claude.ai/code/session_…` 網址；遠端 session 的 commit 多一行 `Claude-Session:`）。app.py 214 行，writer→QA 3 案例通過，`bfbdde3`；自建 .gitignore 排除 orders.xlsx。使用者另要求接前端 → `92007f3`（**整合提前在本機完成**，書上留給 7-3）。**收尾用 `taskkill //F //FI "WINDOWTITLE eq *" //IM python.exe` 可能誤殺所有 Python**；測試伺服器仍佔 port 5000（PID 13956） |
-| 7 | 第 3 步：Claude Code on the Web 雲端整合（7-3 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片／說明：`ch07-step3.txt`／`.mp4`／`teaching/steps/ch07-step3.md`。改法：建 repo、從 `bfbdde3` 開 `before-integration` 分支讓雲端重做，再和本機 `92007f3` 比較 |
+| 7 | 第 3 步：Claude Code on the Web 雲端整合（7-3 節） | ✅ 2026-10-05 完成（由 GitHub 結果判讀） | repo `chenghyang2001/k120-ch07-practice`。雲端**直接推到 `before-integration`**（未另開分支）`954cf73`，作者 Claude、帶 `Claude-Session:` trailer。只改 index.html；**和本機 `92007f3` 幾乎相同**（同樣 postJson、同樣 file:// 改連 127.0.0.1:5000），差在本機用行內訊息＋聚焦欄位，雲端沿用 alert |
+| 7 | 第 4 步：`claude -p` 分析菜單（7-4 節後半；前半 Telegram Channel 跳過） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片／說明：`ch07-step4.txt`／`.mp4`／`teaching/steps/ch07-step4.md`。注意 shell=True、SSRF |
 | 7–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
