@@ -102,8 +102,10 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 8 | 第 1 步：直接對話開發數獨＋八項改良（8-2 節） | ✅ 2026-10-06 完成（由記錄判讀） | 一句話 → 不發問，直接做單一 `sudoku.html`（純網頁，和書附一致），**還發布成 claude.ai Artifact 私人連結**（書上沒有），約 4 分鐘。八項：先正確解釋 X-Wing／Swordfish，**列出分級規劃表請使用者確認後才動手**（對齊術語）；第二版約 9.5 分鐘，12 種人類技巧求解器分級、Web Worker 預備題庫、首頁、undo／暫停、自動存檔、4 背景、紀錄、日期種子每日挑戰；Node 測 24 題唯一解，專家 30–700ms。**HTML 不在 writer-QA 清單 → 沒派 agent**；未在瀏覽器實測；使用者沒 git init |
 | 8 | 第 2 步：PRD 先行（`完成 @PRD.md`）＋雙星號修正（8-3 節） | ✅ 前半完成；⏭️ **雙星號修正使用者決定跳過**（2026-10-06） | 前半（中場判讀 `ch08-step2b.*`）：先問 GUI → PySide6（舊機 tkinter），先寫 `docs/spec.md`；約 40 分鐘、24 檔、3361 行、測試 77→121；reviewer 抓到「中等幾乎都是簡單題（5/40）、每日挑戰全是簡單題」→ 邊挖邊評分＋換格搜尋＋確定性備用種子修好（80/80、92 天）；專家判定只靠「進階技巧也解不開」，與 PRD「依高級技巧頻率」有落差（正是 PRD-v2 雙星號重點）；只做無視窗截圖（emoji 方框）。commit `98406b4` 已 push 到公開 repo `k120-ch08-practice-prd`；使用者又要求修小問題，writer 進行中。| 旁白／影片／說明：`ch08-step2.txt`／`.mp4`／`teaching/steps/ch08-step2.md`；範本 `teaching/steps/ch08-step2/{CLAUDE.md,PRD.md,PRD-v2.md}`。練習資料夾 `k120-ch08-practice-prd` |
 | 8 | 第 3 步：4 個 subagent 分工開發數獨（8-4 節） | ✅ 2026-10-06 完成（由記錄判讀） | 約 30 分鐘。使用者沒重開 → 叫不到專案 agent，主對話改用 general-purpose 讀角色檔扮演。分階段：Phase 0 主對話建骨架＋`docs/interfaces.md` 介面合約 → Phase 1 logic／data／visual 並行 → Phase 2 ui-engineer 串接 → Phase 3 code-qa（不派 reviewer）。CustomTkinter（舊機 pygame）；**困難／專家最慢 0.66 秒**（舊機 >180 秒，書上「高難度過慢」這次沒發生）。326 測試、QA 54 案例、實開視窗 10 張截圖。commit `fb1bf18` 推到公開 repo `k120-ch08-practice-sub` |
-| 8 | 第 4 步：grill-me 反問式開發（8-5 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片／說明：`ch08-step4.txt`／`.mp4`／`teaching/steps/ch08-step4.md`；skill 範本 `teaching/steps/ch08-step4/grill-me-dev/SKILL.md`。**全域已有同名 `grill-me`（知識測驗，內容不同）→ 專案版改名 `grill-me-dev`**。練習資料夾 `k120-ch08-practice-grill` |
-| 8–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
+| 8 | 第 4 步：grill-me 反問式開發（8-5 節） | ✅ 2026-10-06 完成（由記錄判讀；「新增暫停、每日挑戰」使用者表示不必再做） | 專案 skill 改名 `grill-me-dev`（避開全域同名的知識測驗 skill）。無參數時先從專案目標問起；帶「開發一個數獨python app」後**共 16 題、每次一題、每題附比較表＋建議答案**，使用者全回「照建議」，問答約 10 分鐘。之後分 4 批開發、每批同步 `doc/spec.md`；tkinter、零相依、390 測試、3.12／3.14 都測、實開視窗截圖，約 47 分鐘，推到公開 repo `k120-ch08-practice-grill`。模型指出 `07741af` 不是它 commit 的（不明程序，未查證）|
+| 8 | 第 8 章小結 | — | 對話（HTML，約 14 分，未觸發 writer-QA）／PRD（PySide6，約 40 分）／subagent（CustomTkinter，約 30 分）／grill-me（tkinter，10 分問答＋47 分開發）。舊機 subagent 版高難度出不了題，這次四版都沒有；最大差異來自使用者全域規則（.py 一律 writer→QA→reviewer）|
+| 9 | 第 1 步：Karpathy 四原則 CLAUDE.md＋Plan 模式 AskUserQuestion 訪談 → 規格文件（9-1 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片／說明：`ch09-step1.txt`／`.mp4`／`teaching/steps/ch09-step1.md`；範本 `teaching/steps/ch09-step1/{CLAUDE.md,prompt.txt}`。練習資料夾 `k120-ch09-practice` |
+| 9 | 第 2–4 步 | 未開始 | 見 `LESSON-PLAN.md` |
 
 原機器第 1 步的判讀重點：
 
