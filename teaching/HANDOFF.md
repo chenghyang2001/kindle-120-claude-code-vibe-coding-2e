@@ -11,7 +11,7 @@
 > 機器：家用機 USER（Windows 11，Claude Code 2.1.289 原生安裝，Opus 5.5）。
 > 這台已完成第 1–7 章（6-3、7-4 前半的 Telegram 因無 Bot Token 跳過）。
 
-### 下一步：第 8 章第 1 步（8-2 節，直接對話開發數獨）
+### 下一步：見第 2 節進度表「⏳」那一列（2026-10-06 已進行到第 8 章）
 
 - **使用者還沒開始做**（`k120-ch08-practice-chat` 資料夾尚未建立）。
 - 旁白／影片／說明都已做好：`teaching/narration/ch08-step1.txt`、`teaching/videos/ch08-step1.mp4`、`teaching/steps/ch08-step1.md`。
@@ -99,7 +99,8 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 7 | 第 3 步：Claude Code on the Web 雲端整合（7-3 節） | ✅ 2026-10-05 完成（由 GitHub 結果判讀） | repo `chenghyang2001/k120-ch07-practice`。雲端**直接推到 `before-integration`**（未另開分支）`954cf73`，作者 Claude、帶 `Claude-Session:` trailer。只改 index.html；**和本機 `92007f3` 幾乎相同**（同樣 postJson、同樣 file:// 改連 127.0.0.1:5000），差在本機用行內訊息＋聚焦欄位，雲端沿用 alert |
 | 7 | 第 4 步：`claude -p` 分析菜單（7-4 節後半；前半 Telegram Channel 跳過） | ✅ 2026-10-05 完成（由記錄＋程式碼判讀） | 約 20 分鐘，QA 3 輪＋reviewer 2 輪；`menu_analyzer.py` 622 行。可不可最終 30 秒、85 品項（舊機 2 分 15 秒、46 品項），中／大杯拆品項、選項拆短項。`claude -p` 關閉所有工具（防網頁 prompt injection）、移除 `ANTHROPIC_API_KEY`（走訂閱）、10 分鐘快取、同時最多 2 個。**shell=True 與 SSRF 都處理**：參數清單、內網 IP 擋、逐跳轉址檢查＋`--resolve` 釘 IP（防 DNS rebinding）、擋 100.64/10；後端只收本機請求、CORS 只允許本機 → 不能再雙擊 file://。commit `c4532a6`／`35c5856` 已 push。模型誤稱 repo 是「自動化流程建的」（實為使用者第 3 步自建） |
 | 7 | 7-4 前半 Telegram Channel 外掛 | ⏭️ 這台先跳過（無 Bot Token） | 外掛已安裝於本機但未設定 token |
-| 8 | 第 1 步：直接對話開發數獨＋八項改良（8-2 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片／說明：`ch08-step1.txt`／`.mp4`／`teaching/steps/ch08-step1.md`。練習資料夾 `k120-ch08-practice-chat` |
+| 8 | 第 1 步：直接對話開發數獨＋八項改良（8-2 節） | ✅ 2026-10-06 完成（由記錄判讀） | 一句話 → 不發問，直接做單一 `sudoku.html`（純網頁，和書附一致），**還發布成 claude.ai Artifact 私人連結**（書上沒有），約 4 分鐘。八項：先正確解釋 X-Wing／Swordfish，**列出分級規劃表請使用者確認後才動手**（對齊術語）；第二版約 9.5 分鐘，12 種人類技巧求解器分級、Web Worker 預備題庫、首頁、undo／暫停、自動存檔、4 背景、紀錄、日期種子每日挑戰；Node 測 24 題唯一解，專家 30–700ms。**HTML 不在 writer-QA 清單 → 沒派 agent**；未在瀏覽器實測；使用者沒 git init |
+| 8 | 第 2 步：PRD 先行（`完成 @PRD.md`）＋雙星號修正（8-3 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片／說明：`ch08-step2.txt`／`.mp4`／`teaching/steps/ch08-step2.md`；範本 `teaching/steps/ch08-step2/{CLAUDE.md,PRD.md,PRD-v2.md}`。練習資料夾 `k120-ch08-practice-prd` |
 | 8–9 | 其餘見 `LESSON-PLAN.md` | 未開始 | |
 
 原機器第 1 步的判讀重點：
