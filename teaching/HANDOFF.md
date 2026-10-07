@@ -212,7 +212,7 @@ python teaching\tools\make_caption_video.py teaching\narration\ch01-step1-2.txt 
 - 簡報網頁（8 段，74 張）：<https://chenghyang2001.github.io/kindle-120-slides/>
 - YouTube 影片摘要（8 支，**私人**，要登入 ChengHsien Yang 帳號才能看）：<https://www.youtube.com/playlist?list=PLRcrmTuEzYPo>
 - 出版社服務專區：<https://github.com/FlagTech/F6757_support>
-- **互動教學影片（2026-10-07 上傳，私人）**：播放清單 36 支 <https://www.youtube.com/playlist?list=PLUOL3y59b9Bk>；全集長片（含章節）<https://www.youtube.com/watch?v=0Sxt9x7EgCo>。手動上傳時 YouTube 把檔名的 `-` 轉成空白，標題顯示為「K120 01 …」。VPS 狀態檔 `/home/claude/k120-yt/state.json`
+- **互動教學影片（2026-10-07 上傳，私人）**：每章一支 9 支 <https://www.youtube.com/playlist?list=PLHr9yRuZVFZk>（說明欄含章節時間軸）；逐步版播放清單 36 支 <https://www.youtube.com/playlist?list=PLUOL3y59b9Bk>；全集長片（含章節）<https://www.youtube.com/watch?v=0Sxt9x7EgCo>。手動上傳時 YouTube 把檔名的 `-` 轉成空白，標題顯示為「K120 01 …」。VPS 狀態檔 `/home/claude/k120-yt/state.json`
 
 ---
 
