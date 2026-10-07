@@ -105,8 +105,9 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 8 | 第 3 步：4 個 subagent 分工開發數獨（8-4 節） | ✅ 2026-10-06 完成（由記錄判讀） | 約 30 分鐘。使用者沒重開 → 叫不到專案 agent，主對話改用 general-purpose 讀角色檔扮演。分階段：Phase 0 主對話建骨架＋`docs/interfaces.md` 介面合約 → Phase 1 logic／data／visual 並行 → Phase 2 ui-engineer 串接 → Phase 3 code-qa（不派 reviewer）。CustomTkinter（舊機 pygame）；**困難／專家最慢 0.66 秒**（舊機 >180 秒，書上「高難度過慢」這次沒發生）。326 測試、QA 54 案例、實開視窗 10 張截圖。commit `fb1bf18` 推到公開 repo `k120-ch08-practice-sub` |
 | 8 | 第 4 步：grill-me 反問式開發（8-5 節） | ✅ 2026-10-06 完成（由記錄判讀；「新增暫停、每日挑戰」使用者表示不必再做） | 專案 skill 改名 `grill-me-dev`（避開全域同名的知識測驗 skill）。無參數時先從專案目標問起；帶「開發一個數獨python app」後**共 16 題、每次一題、每題附比較表＋建議答案**，使用者全回「照建議」，問答約 10 分鐘。之後分 4 批開發、每批同步 `doc/spec.md`；tkinter、零相依、390 測試、3.12／3.14 都測、實開視窗截圖，約 47 分鐘，推到公開 repo `k120-ch08-practice-grill`。模型指出 `07741af` 不是它 commit 的（不明程序，未查證）|
 | 8 | 第 8 章小結 | — | 對話（HTML，約 14 分，未觸發 writer-QA）／PRD（PySide6，約 40 分）／subagent（CustomTkinter，約 30 分）／grill-me（tkinter，10 分問答＋47 分開發）。舊機 subagent 版高難度出不了題，這次四版都沒有；最大差異來自使用者全域規則（.py 一律 writer→QA→reviewer）|
-| 9 | 第 1 步：Karpathy 四原則 CLAUDE.md＋Plan 模式 AskUserQuestion 訪談 → 規格文件（9-1 節） | ⏳ **從這裡接續，等使用者回報** | 旁白／影片／說明：`ch09-step1.txt`／`.mp4`／`teaching/steps/ch09-step1.md`；範本 `teaching/steps/ch09-step1/{CLAUDE.md,prompt.txt}`。練習資料夾 `k120-ch09-practice` |
-| 9 | 第 2–4 步 | 未開始 | 見 `LESSON-PLAN.md` |
+| 9 | 第 1 步：Karpathy 四原則 CLAUDE.md＋Plan 模式 AskUserQuestion 訪談 → 規格文件（9-1 節） | ✅ 2026-10-07 完成（由記錄判讀；判讀影片 `ch09-wrapup.*`） | 訪談 3 輪×4 題＝12 題，專挑難點：雲端 IP 被 YouTube 擋、字幕一變就截圖會爆量、自動字幕重複無標點、**截圖時點選「區間中點」（書上 9-3 才修的做法，訪談就先問出）**。FastAPI＋純 HTML/JS，翻譯用 `claude -p` 走訂閱。M1 走完整 4 輪 QA＋2 輪審查後，模型主動問開發模式 → 使用者選**快速 demo 模式**。該 session 一路做到 M7（SQLite 佇列、SSE、取消、歷史、HTML/PDF/MD 匯出、Whisper 備援、播放清單；M2 交 VPS Ralph）＝實質完成 9-2～9-4。**坑：app 內 `claude -p` 早期會載入全域設定，被 Stop hook「未提交改動」劫持而不翻譯；最終版加 `--setting-sources= --strict-mcp-config` 隔離** |
+| 9 | 第 2–4 步（/goal、Playwright 測試、歷史／翻譯／語音辨識） | ✅ 由上一列的 session 以 M2–M7 實質完成 | 未照書上逐步操作 `/goal` |
+| — | **課程完成** | ✅ 2026-10-07 | 跳過：6-3、7-4 前半（Telegram，無 Bot Token）、8-3 雙星號修正 |
 
 原機器第 1 步的判讀重點：
 
