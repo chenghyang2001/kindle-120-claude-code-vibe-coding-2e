@@ -30,6 +30,7 @@
    `export PATH="$LOCALAPPDATA/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.2-full_build/bin:$PATH"`
 6. **請使用者自己打指令，不要整段貼教學說明給練習 session**（2-5 的對照組因此被破壞）。
 7. 練習 session 受全域規則影響很大（writer→QA→reviewer、commit 後 push、Stop hook 提醒），判讀時要分清「書上行為」和「使用者全域設定造成的行為」。第 6 章用 `claude --setting-sources project,local` 排除全域 hook。
+9. **想加快 demo** 時，照 `teaching/steps/fast-demo.md`（關掉三 agent 鐵律＋速度優先提示詞＋多視窗並行）。
 8. 使用者要求時可用 Gmail MCP（`mcp__claude_ai_Gmail__send_message`）把提示詞寄給自己（手機貼用）。
 
 ### 收工時的環境狀態（明天先處理）
