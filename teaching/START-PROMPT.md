@@ -1,3 +1,29 @@
+# 另一台家用電腦：快速模式重跑第 1–9 章
+
+先 `git pull` 本 repo 和 `~/.claude`，再在 repo 資料夾（`%USERPROFILE%\workspace\kindle-120-claude-code-vibe-coding-2e`）輸入 `claude`，整段貼上：
+
+```
+我要在另一台家用電腦，用快速 demo 模式重跑 K120《Claude Code Vibe Coding 開發手冊 第 2 版》第 1–9 章。
+
+這次已經決定用快速模式：不要再問我要用哪種模式；不做旁白稿和字幕影片（不用 VLC、edge-tts），說明一律在聊天視窗用文字。
+
+請先讀：
+1. teaching/FAST-RUN.md：各章的練習資料夾、步驟、保留／省略、對照檢查點、平行建議
+2. teaching/steps/fast-demo.md：快速模式三件事和各章例外
+
+開始前先確認環境：claude、uv、ffmpeg、git、gh 都要能執行（ffmpeg 第 9 章需要）。缺什麼就告訴我怎麼補，不要跳過。
+
+做法：
+- 一律繁體中文。我用 cmd，指令用 %USERPROFILE%、set，不要給 $env:。
+- 每次帶一章：告訴我用 teaching\tools\fast-start.bat 開哪個練習資料夾，以及每一步要貼的提示詞（指向 code/00-F6757_support/chNN.md 的哪一節，原文很短就直接列出）。
+- 我在另一個終端機操作，回報後（或只說 proceed next 時，直接讀練習資料夾的對話記錄判讀），用 3–5 行比對「和原機器有什麼不同、原因是什麼」，對照 FAST-RUN.md 的檢查點、demo/DEMO-LOG.md 和 teaching/HANDOFF.md 第 2 節。
+- 每章結束時更新 teaching/HANDOFF.md 的「快速模式進度表」（完成日、實際耗時、和原機器的差異），然後 commit 並 push。一章只 commit 一次。
+
+從第 1 章開始。
+```
+
+---
+
 # 同一台電腦隔天接續（2026-10-06 起用這段）
 
 在 repo 資料夾（`%USERPROFILE%\workspace\kindle-120-claude-code-vibe-coding-2e`）輸入 `claude`，貼上：
