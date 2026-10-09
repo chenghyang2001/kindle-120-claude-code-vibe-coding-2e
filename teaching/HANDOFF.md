@@ -124,7 +124,7 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 1 | ✅ | 2026-10-09 | 26 分（預估 15） | Win10、**npm 全域安裝** 2.1.295（原機器 native 2.1.289）；`/doctor` 會主動提清理建議並改全域設定（停用 4 個已整併 skill、本專案停用 6 個 MCP）；scoop v0.6.0 相同，但同一個 cmd 分頁重開 claude 仍是舊 PATH、找不到 scoop（要開新視窗）；2.1.295 的 `!` 指令輸出會交給模型解讀；`echo $0`＝`/usr/bin/bash` 相同。本章由教練視窗用 `wt-send.ps1` 代操作 |
 | 2 | ✅ | 2026-10-09 | 31 分（預估 40；2-2 本體 4 分、2-3 本體 4 分，其餘花在代操作卡權限確認） | 2-2：`watermark.py` 65 行、4 分（原機器 410 行、33 分）；2.1.295 權限循環多了 auto／manual：bypass→auto→manual→accept edits→plan；`/rewind` 有 5 個選項並會 fork 對話，`.py` 還原、Bash 產生的 PDF 不還原（同原機器）；全域 Stop hook 會自動 commit（Haiku），git 多出紅→灰來回兩筆；2-3 PRD 給足 6 條，cache 資料夾有做（原機器漏），plan 核准選「Yes＋切 bypass」；前端仍是單一 `index.html`（同 DEMO-LOG）；2-4 `front_end/CLAUDE.md` 與 `.claude/rules/web.md`（paths）兩種寫法 `claude -p` 都判「沒照規則」並正確指出依據檔（38／42 秒） |
 | 3 | ✅ | 2026-10-09 | 9 分（預估 15） | `/context` 分母 1m、Autocompact 33k（同原機器）；開場 88.1k，Memory files 36.3k 最大、Custom agents 19.3k；2.1.295 `/cost` 併入 `/usage`，Settings／Status／Config／Usage／Stats 合成一個分頁對話框；`/permissions` 多 Recently denied、Auto mode 分頁；⚠️ `/statusline` **寫進全域 `~/.claude/settings.json`**（原機器寫專案 `settings.local.json`），已還原全域並把設定搬到專案 `settings.local.json`；`/loop` 用 CronCreate、7 天失效（同原機器），測完已 CronDelete；`/schedule` 只比較不建立（會建雲端排程） |
-| 4 | ⬜ | | | |
+| 4 | ✅ | 2026-10-09 | 18 分（預估 30） | 4-1：agent 建在專案 `.claude/agents/`（全域有同名，專案版優先）；沒指名時**主 agent 自己翻**（同原機器 DEMO-LOG），指名才派 subagent，兩者都 49 秒（DEMO-LOG 11.5／25 秒）；4-2 縮成 Python／Go／JS × bubble／quick：直接寫 32.5 秒、3 個 subagent 並行 48 秒，**並行反而較慢**（原機器只快一點）；4-3 改審 Go：subagent 版 8.5 分、直接版 5.5 分（原機器幾乎打平），主因直接版兩個 `main` 同資料夾無法整包編譯，且主 agent 自承派審查時有提示衝突點、可能影響客觀；4-4 約 6 分（原機器 9 分），aggregator 與 style 同時派出（同原機器），四段 52／126／60／110 秒 |
 | 5 | ⬜ | | | |
 | 6 | ⬜ | | | |
 | 7 | ⬜ | | | |
