@@ -122,7 +122,7 @@ Claude 寫旁白稿 → 產生「語音＋同步字幕」影片 → 用 VLC 播�
 | 章 | 狀態 | 完成日 | 實際耗時 | 和原機器的差異 |
 | --- | --- | --- | --- | --- |
 | 1 | ✅ | 2026-10-09 | 26 分（預估 15） | Win10、**npm 全域安裝** 2.1.295（原機器 native 2.1.289）；`/doctor` 會主動提清理建議並改全域設定（停用 4 個已整併 skill、本專案停用 6 個 MCP）；scoop v0.6.0 相同，但同一個 cmd 分頁重開 claude 仍是舊 PATH、找不到 scoop（要開新視窗）；2.1.295 的 `!` 指令輸出會交給模型解讀；`echo $0`＝`/usr/bin/bash` 相同。本章由教練視窗用 `wt-send.ps1` 代操作 |
-| 2 | ⬜ | | | |
+| 2 | ✅ | 2026-10-09 | 31 分（預估 40；2-2 本體 4 分、2-3 本體 4 分，其餘花在代操作卡權限確認） | 2-2：`watermark.py` 65 行、4 分（原機器 410 行、33 分）；2.1.295 權限循環多了 auto／manual：bypass→auto→manual→accept edits→plan；`/rewind` 有 5 個選項並會 fork 對話，`.py` 還原、Bash 產生的 PDF 不還原（同原機器）；全域 Stop hook 會自動 commit（Haiku），git 多出紅→灰來回兩筆；2-3 PRD 給足 6 條，cache 資料夾有做（原機器漏），plan 核准選「Yes＋切 bypass」；前端仍是單一 `index.html`（同 DEMO-LOG）；2-4 `front_end/CLAUDE.md` 與 `.claude/rules/web.md`（paths）兩種寫法 `claude -p` 都判「沒照規則」並正確指出依據檔（38／42 秒） |
 | 3 | ⬜ | | | |
 | 4 | ⬜ | | | |
 | 5 | ⬜ | | | |
